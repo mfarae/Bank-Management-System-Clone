@@ -1,0 +1,161 @@
+{% extends "layout.html" %}
+
+{% block title %}Edit Customer{% endblock %}
+
+{% block content %}
+<div class = "row col-md-8 my-5">
+    <div class="card col-md-8 mx-auto px-0">
+        <div class="card-header">
+            Edit Customer Details
+        </div>
+        <div class="card-body">
+            <form action="{{ url_for('editcustomer',c_id=data.c_id) }}" method="POST">
+                <table class="col-md-12">
+                    <tbody>
+                        <tr>
+                            <th>
+                                <div class="form-group input-group">
+                                    <label class="pl-3">Customer Id</label>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="form-group input-group">
+                                    <label class="pl-5">{{ data.c_id }}</label>
+                                </div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <div class="form-group input-group">
+                                    <label class="pl-3">First Name</label>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="form-group input-group">
+                                    <label class="pl-5">{{ data.f_name }}</label>
+                                </div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <div class="form-group input-group">
+                                    <label class="pl-3">Last Name</label>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="form-group input-group">
+                                    <label class="pl-5">{{ data.l_name }}</label>
+                                </div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <div class="form-group input-group">
+                                    <label class="pl-3" for="name">New First Name</label>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="form-group input-group pl-3">
+                                   <input class="form-control" name="f_name" id="f_name" type="textfield" placeholder="First Name" required maxlength="50">
+                                </div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <div class="form-group input-group">
+                                    <label class="pl-3" for="name">New Last Name</label>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="form-group input-group pl-3">
+                                   <input class="form-control" name="l_name" id="l_name" type="textfield" placeholder="Last Name" required maxlength="50">
+                                </div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <div class="form-group input-group">
+                                    <label class="pl-3">Old Postcode</label>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="form-group input-group">
+                                    <label class="pl-5">{{ data.postcode }}</label>
+                                </div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <div class="form-group input-group">
+                                    <label class="pl-3" for="address">New Postcode</label>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="form-group input-group pl-3">
+                                   <input class="form-control" name="postcode" id="postcode" type="textfield" placeholder="New Postcode" maxlength="100">
+                                </div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <div class="form-group input-group">
+                                    <label class="pl-3">Old email</label>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="form-group input-group">
+                                    <label class="pl-5">{{ data.email }}</label>
+                                </div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <div class="form-group input-group">
+                                    <label class="pl-3" for="age">New Email</label>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="form-group input-group pl-3">
+                                   <input class="form-control" name="email" id="email" type="textfield" placeholder="New Email" maxlength="50">
+                                </div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <div class="form-group input-group">
+                                    <label class="pl-3">Old Street</label>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="form-group input-group">
+                                    <label class="pl-5">{{ data.street }}</label>
+                                </div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <div class="form-group input-group">
+                                    <label class="pl-3" for="age">New Street</label>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="form-group input-group pl-3">
+                                   <input class="form-control" name="street" id="street" type="textfield" placeholder="New Street" maxlength="50">
+                                </div>
+                            </th>
+                        </tr>
+                        <tr>
+                        <tr>
+                            <th colspan="2">
+                                <div class="form-group input-group mt-3">
+                                    <input type="submit" value="Edit" onclick="alert('Are you Sure, You want to Edit this customer data?')" class="btn mx-auto">
+                                </div>
+                            </th>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

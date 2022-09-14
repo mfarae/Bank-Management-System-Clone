@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block title %}Add Customer{% endblock %}
+
+{% block content %}
+<div class = "row mb-3">
+    <div class="card">
+        <div class="card-header text-center">
+            <h4>Account Status</h4>
+        </div>
+        <div class="card-body">
+            {% if data %}
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th> Customer Id</th>
+                    <th> Account Id</th>
+                    <th> Account Type</th>
+                    <th> Account Status</th> -->
+                    <th> Operations</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for i in data %}
+                  <tr>
+                    <td> {{ i.c_id }}</td>
+                    <td>  {{ i.account_no }}</td>
+                    <td> {{ i.acc_type }}</td>
+                    <td>   {{ i.authorization_status }}</td>
+                    <td><a href="javaScript:void(0)" class="refresh_acc" data-account_no={{ i.account_no }}>Refresh</a></td>
+                  </tr>
+                
+                    
+                  {%endfor%}
+                  
+                </tbody>
+              </table>
+            
+            </div>
+            <div class="row">
+              <div class="form-group col-md-12 text-center">
+                  <div class="float-right">
+                      <a href="{{ url_for('viewaccountstatus') }}">
+                          <button class="btn">Refresh the List</button>
+                      </a>
+                  </div>
+              </div>
+          </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

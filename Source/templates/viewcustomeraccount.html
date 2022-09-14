@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block title %}View Account Details{% endblock %}
+
+{% block content %}
+<div class="row col-md-8 my-5">
+    <div class="card col-md-8 mx-auto px-0">
+        <div class="card-header">
+            View Account Details
+        </div>
+        <div class="card-body">
+            <div class="row mb-4">
+                <table class="col-md-12">
+                    <tbody>
+                        <tr>
+                            <td>
+                                Account Number
+                            </td>
+                            <td>
+                                {{ data.account_no }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Account Balance
+                            </td>
+                            <td>
+                                {{ data.balance }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Account Type
+                            </td>
+                            <td>
+                                {{ data.acc_type }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Account Status
+                            </td>
+                            <td>
+                                {{ data.authorization_status }}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

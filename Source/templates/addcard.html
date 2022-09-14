@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}Add Account{% endblock %}
+
+{% block content %}
+<div class = "row mb-3">
+    <div class="card">
+        <div class="card-header" style="color:#000;text-align:center; font-weight: bold; font-size:22px ">
+            Add Card
+        </div>
+        <div class="card-body">
+            <form action="addcard" method="POST">
+            
+                <div class="form-group input-group mb-3">
+                    <label class="m-auto pr-3" for="account_no" style="color:#000; font-weight: bold; font-size:18px ">Customer Account Number <span style="color:#ff0000"><sup>*</sup></span></label>
+                   <input class="form-control" name="account_no" id="account_no" type="textfield" placeholder="Enter Account Number" required maxlength="9">
+                </div>
+
+                <div class="form-group input-group mb-3">
+                    <label for="card_type" style="color:#000; font-weight: bold; font-size:18px ">Choose Card Type:<span style="color:#ff0000"><sup>*</sup></span></label>
+                    <select class="form-control" id="card_typr" name="card_type">
+                        <option value="Silver" style="color:#000; font-weight: bold; font-size:15px ">Silver</option>
+                        <option value="Platinum" style="color:#000; font-weight: bold; font-size:15px ">Platinum</option>
+                        <option value="Gold" style="color:#000; font-weight: bold; font-size:15px ">Gold</option>
+                        <option value="Master" style="color:#000; font-weight: bold; font-size:15px ">Master</option>
+                    </select>
+                  </div>
+                <span style="color:#ff0000; font-weight:bold;"><p><b>(<sup> * </sup>) Fields are compulsory </b></p></span>
+                <div class="form-group" style="background-color:#ffff66; color:#000; font-weight: bold; font-size:22px ">
+                    <input type="submit" value="Submit" class="btn float-left login_btn" style="font-weight:bold; font-size:18px;">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

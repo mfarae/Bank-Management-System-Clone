@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block title %}View Account Details{% endblock %}
+
+{% block content %}
+<div class="row col-md-8 my-5">
+    <div class="card col-md-8 mx-auto px-0">
+        <div class="card-header">
+            View Card Details
+        </div>
+        {% if viewcustomercards %}
+        {% for i in data %}
+        <div class="card-body">
+            <div class="row mb-4">
+                <table class="col-md-12">
+                    <tbody>
+                        <tr>
+                            <td>
+                                Card Number
+                            </td>
+                            <td>
+                                {{ i.card_no }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Issue Date
+                            </td>
+                            <td>
+                                {{ i.issue_date }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Expiry Date
+                            </td>
+                            <td>
+                                {{ i.exp_date }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Card Type
+                            </td>
+                            <td>
+                                {{ i.card_type }}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,122 @@
+{% extends "layout.html" %}
+
+{% block title %}Add Customer{% endblock %}
+
+{% block content %}
+<div class="row col-md-8 my-5">
+    <div class="card col-md-8 mx-auto px-0">
+        <div class="card-header">
+            View Customer Details
+        </div>
+        <div class="card-body">
+            {% if data %}
+            <div class="row mb-4">
+                <table class="col-md-12">
+                    <tbody>
+                        <tr>
+                            <td>
+                                Customer ID
+                            </td>
+                            <td>
+                                {{ data.c_id }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                First Name
+                            </td>
+                            <td>
+                                {{ data.f_name }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Second Name
+                            </td>
+                            <td>
+                                {{ data.l_name }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Email
+                            </td>
+                            <td>
+                                {{ data.email }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Phone
+                            </td>
+                            <td>
+                                {{ data.ph_no }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Street
+                            </td>
+                            <td>
+                                {{ data.street }}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="row mb-4">
+                <div class="form-group col-md-12">
+                    <div class="float-left">
+                        <a href="{{ url_for('editcustomer',c_id=data.c_id ) }}">
+                            <button class="btn">Edit</button>
+                        </a>
+                    </div>
+                    <!-- {% if data.status == 'deactivate' %}
+                    <div class="float-right">
+                        <a href="{{ url_for('activatecustomer',c_id=data.c_id ) }}">
+                            <button class="btn"
+                                onclick="alert('Are you Sure, You want to activate this customer?')">Activate</button>
+                        </a>
+                    </div>
+                    {% else %}
+                    <div class="float-right">
+                        <a href="{{ url_for('editcustomer',c_id=data.c_id ) }}">
+                            <button class="btn"
+                                onclick="alert('Are you Sure, You want to deactivate this customer?')">Delete</button>
+                        </a>
+                    </div>
+                    {% endif %} -->
+                </div>
+            </div>
+            {%else%}
+            <form action="{{ url_for('viewcustomer') }}" id="view_cust" method="POST">
+                <table class="col-md-12">
+                    <tbody>
+                        <tr>
+                            <th>
+                                <div class="form-group input-group">
+                                    <label class="m-auto float-left" for="c_id">Customer Id</label>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="form-group input-group">
+                                    <input class="form-control" name="c_id" id="c_id" type="textfield"
+                                        placeholder="Customer Id" maxlength="9">
+                                </div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th colspan="2">
+                                <div class="form-group input-group">
+                                    <input type="submit" value="View" class="btn mx-auto">
+                                </div>
+                            </th>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block title %}Add Customer{% endblock %}
+
+{% block content %}
+<div class = "row mb-3">
+    <div class="card">
+        <div class="card-header" style="color:#000;text-align:center; font-weight: bold; font-size:22px ">
+            Add Customer
+        </div>
+        <div class="card-body">
+            <form action="addcustomer" method="POST">
+                <div class="form-group input-group mb-3">
+                    <label class="m-auto pr-3" for="c_id" style="color:#000; font-weight: bold; font-size:18px ">Customer ID<span style="color:#ff0000"><sup>*</sup></span></label>
+                   <input class="form-control" name="c_id" id="c_id" type="textfield" placeholder="Customer ID" maxlength="9">
+                </div>
+                <div class="form-group input-group mb-3">
+                    <label class="m-auto pr-3" for="f_name" style="color:#000; font-weight: bold; font-size:18px ">Customer First Name <span style="color:#ff0000"><sup>*</sup></span></label>
+                   <input class="form-control" name="f_name" id="f_name" type="textfield" placeholder="First Name" required maxlength="50">
+                </div>
+                <div class="form-group input-group mb-3">
+                    <label class="m-auto pr-3" for="l_name" style="color:#000; font-weight: bold; font-size:18px ">Customer Last Name<span style="color:#ff0000"><sup>*</sup></span></label>
+                   <input class="form-control" name="l_name" id="l_name" type="textfield" placeholder="Last Name" required maxlength="100">
+                </div>
+                <div class="form-group input-group mb-3">
+                    <label class="m-auto pr-3" for="email"style="color:#000; font-weight: bold; font-size:18px ">Email<span style="color:#ff0000"><sup>*</sup></span></label>
+                   <input class="form-control" name="email" id="email" type="textfield" placeholder="Email" required maxlength="50">
+                </div>
+                <div class="form-group input-group mb-3">
+                    <label class="m-auto pr-3" for="ph_no" style="color:#000; font-weight: bold; font-size:18px ">Phone<span style="color:#ff0000"><sup>*</sup></span></label>
+                   <input class="form-control" name="ph_no" id="ph_no" type="textfield" placeholder="Phone" required maxlength="20">
+                </div>
+                <div class="form-group input-group mb-3">
+                    <label class="m-auto pr-3" for="street" style="color:#000; font-weight: bold; font-size:18px ">Street<span style="color:#ff0000"><sup>*</sup></span></label>
+                   <input class="form-control" name="street" id="street" type="textfield" placeholder="Street" required maxlength="20">
+                </div>
+                <div class="form-group input-group mb-3">
+                    <label for="postcode" style="color:#000; font-weight: bold; font-size:18px ">Choose Postcode:<span style="color:#ff0000"><sup>*</sup></span></label>
+                    <select class="form-control" id="postcode" name="postcode">
+                        <option value="25200" style="color:#000; font-weight: bold; font-size:15px ">25200</option>
+                        <option value="44000" style="color:#000; font-weight: bold; font-size:15px ">44000</option>
+                        <option value="44450" style="color:#000; font-weight: bold; font-size:15px ">44450</option>
+                        <option value="46000" style="color:#000; font-weight: bold; font-size:15px ">46000</option>
+                        <option value="47040" style="color:#000; font-weight: bold; font-size:15px ">47040</option>
+                        <option value="60001" style="color:#000; font-weight: bold; font-size:15px ">60001</option>
+                    </select>
+                </div>
+                <span style="color:#ff0000; font-weight:bold;"><p><b>(<sup> * </sup>) Fields are compulsory </b></p></span>
+                <div class="form-group" style="background-color:#ffff66; color:#000; font-weight: bold; font-size:22px ">
+                    <input type="submit" value="Submit" class="btn float-left login_btn" style="font-weight:bold; font-size:18px;">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

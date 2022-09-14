@@ -1,0 +1,54 @@
+<div class="navbar">
+  <a href="{{ url_for('dashboard') }}" class="nav-link {% if home %}active{% endif %}">Home</a>
+  {% if not session['user'] %}
+  <a href="{{ url_for('login') }}" class="nav-link {% if login %}active{% endif %}">Employee Log In</a>
+  <a href="{{ url_for('customer_login') }}" class="nav-link {% if customer_login %}active{% endif %}">Customer Log In</a>
+  {% else %}
+    {% if session['usert']=="executive" %}
+      <div class="subnav">
+        <button class="subnavbtn">Customer Management <i class="fa fa-caret-down"></i></button>
+        <div class="subnav-content">
+          <a href="{{ url_for('addcustomer') }}" class="nav-link {% if addcustomer %}active{% endif %}">Add Customer</a>
+          <a href="{{ url_for('viewcustomer') }}" class="nav-link {% if viewcustomer %}active{% endif %}" >View Customer</a>
+          <a href="{{ url_for('editcustomer') }}" class="nav-link {% if editcustomer %}active{% endif %}">Edit Customer</a>
+
+
+        </div>
+      </div>
+      <div class="subnav">
+        <button class="subnavbtn">Account Management <i class="fa fa-caret-down"></i></button>
+        <div class="subnav-content">
+          <a href="{{ url_for('addaccount') }}" class="nav-link {% if addaccount %}active{% endif %}">Add Account</a>
+          <a href="{{ url_for('viewaccount') }}" class="nav-link {% if viewaccount %}active{% endif %}">View Account</a>
+          <a href="{{ url_for('viewaccountstatus') }}" class="nav-link {% if viewaccountstatus %}active{% endif %}">Account Status</a>
+          <a href="{{ url_for('addcard') }}" class="nav-link {% if addcard %}active{% endif %}">Add Card</a>
+        </div>
+      </div>
+    {% elif session['usert']=="cashier" or session['usert']=="teller" %}
+      <div class="subnav">
+        <button class="subnavbtn">Account Management <i class="fa fa-caret-down"></i></button>
+        <div class="subnav-content">
+          <a href="{{ url_for('viewaccount') }}" class="nav-link {% if viewaccount %}active{% endif %}">View Account</a>
+        </div>
+      </div>
+      <div class="subnav">
+        <button class="subnavbtn">Loan Management <i class="fa fa-caret-down"></i></button>
+        <div class="subnav-content">
+          <a href="{{ url_for('home_loan') }}" class="nav-link {% if home_loan %}active{% endif %}">Home Loans</a>
+          <a href="{{ url_for('student_loan') }}" class="nav-link {% if student_loan %}active{% endif %}">Student Loans</a>
+        </div>
+      </div>
+    {% elif session['usert']=="customer" %}
+    <div class="subnav">
+      <button class="subnavbtn">Customer Operations <i class="fa fa-caret-down"></i></button>
+      <div class="subnav-content">
+        <a href="{{ url_for('viewcustomercards') }}" class="nav-link {% if viewcustomercards %}active{% endif %}">View Customer Cards</a>
+        <a href="{{ url_for('viewcustomeraccount', account_no=session['user']) }}" class="nav-link {% if viewcustomeraccount %}active{% endif %}">View Customer Account</a> <!--it should automatically show only the customer accounts-->
+        <a href="{{ url_for('statement') }}" class="nav-link {% if statement %}active{% endif %}">Account Statement</a>
+        <a href="{{ url_for('transfer', account_no=session['user']) }}" class="nav-link {% if transfer %}active{% endif %}">Transfer Funds</a>
+      </div>
+    </div>
+    {% endif %}
+    <a href="{{ url_for('logout') }}" class="nav-link">Logout</a>
+  {% endif %}
+</div>
